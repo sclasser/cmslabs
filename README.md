@@ -16,8 +16,6 @@ Creează un plugin educațional numit USM Notes, care adaugă pe site o secțiun
 
 2.Asigură-te că ai acces de administrator.
 
-<img width="1450" height="89" alt="image" src="https://github.com/user-attachments/assets/5470ecd7-c0cb-447b-9463-1c74bd7757b6" />
-
 3.Activează modul de depanare în wp-config.php, adăugând define('WP_DEBUG', true);
 
 <img width="705" height="252" alt="image" src="https://github.com/user-attachments/assets/721a6fae-cd2f-43da-9718-0ab9fb02bbea" />
