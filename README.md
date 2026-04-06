@@ -1,161 +1,129 @@
-# Lucrarea de laborator nr. 2. Introducere în WordPress
+# Lucrarea de laborator nr. 3. Dezvoltarea unei teme WordPress simple
 
 ## Scopul lucrării
 
-Să înveți cum să instalezi WordPress într-un mediu local, să te familiarizezi cu panoul de administrare, să modifici aspectul site-ului prin teme și să extinzi funcționalitatea acestuia cu ajutorul plugin-urilor.
+Să înveți cum să creezi o temă WordPress personalizată, să înțelegi structura sa minimă și principiile de funcționare ale șabloanelor.
 
 ## Condiții
 
 ###  Pasul 1. Pregătirea mediului
 
-1.Instalează XAMPP de pe linkul https://sourceforge.net/projects/xampp/
+1.În instalarea locală WordPress, accesează folderul wp-content/themes
 
-2.Pornește modulele Apache și MySQL. Asigură-te că http://localhost se deschide.
+<img width="412" height="37" alt="image" src="https://github.com/user-attachments/assets/8ae8fc95-d397-4c44-b43b-a307205bba22" />
 
-3.În phpMyAdmin, creează o bază de date nouă, de exemplu wp_lab2
+2.Creează un director pentru tema ta, de exemplu Lab3-theme
 
-<img src="imagini/s1.png" width="500">
+<img width="128" height="32" alt="image" src="https://github.com/user-attachments/assets/bd782f4a-38f6-42d1-9562-3cde461aa843" />
 
-### Pasul 2. Instalarea WordPress
+3.Activează modul de depanare în wp-config.php, adăugând define('WP_DEBUG', true);
 
-1.Descarcă WordPress de pe wordpress.org
+<img width="705" height="252" alt="image" src="https://github.com/user-attachments/assets/721a6fae-cd2f-43da-9718-0ab9fb02bbea" />
 
-2.Dezarhivează fișierele în folderul htdocs
+### Pasul 2. Crearea fișierelor obligatorii ale temei
 
-3.În browser, deschide http://localhost/wordpress și parcurge procesul de instalare introducand toate datele necesare 
+1.În folderul temei, creează fișierul style.css cu metadatele temei.
 
-Alegem limba instalarii
+2.După metadate, poți adăuga reguli CSS de bază.
 
-<img src="imagini/s2.png" width="500">
+<img width="702" height="237" alt="image" src="https://github.com/user-attachments/assets/e0db2137-577a-41ba-9eb0-fc30bcd68b40" />
 
-<img src="imagini/s3.png" width="500">
+3.Creează fișierul index.php – șablonul principal al temei. Pentru început, adaugă o structură HTML de bază.
 
-Introducem datele necesare
+<img width="667" height="512" alt="image" src="https://github.com/user-attachments/assets/557a415e-86ca-4e43-a2ae-a9177c58d7d1" />
 
-<img src="imagini/s4.png" width="500">
-
-Pornim instalarea 
-
-<img src="imagini/s5.png" width="500">
-
-Alegem titlul si cream cont 
-
-<img src="imagini/s6a.png" width="500">
-
-Ne logam si intram in pagina principala
-
-<img src="imagini/s7.png" width="500">
+### Pasul 3. Componente comune ale șabloanelor
 
 ### Pasul 3. Setările inițiale ale site-ului
 
-1.În panoul de administrare, accesează secțiunea Settings → General. Schimbă numele site-ului și fusul orar.
+1.Creează fișierul header.php și mută acolo codul antetului site-ului (până la începutul conținutului principal).
 
-<img src="imagini/s8.png" width="500">
+<img width="974" height="293" alt="image" src="https://github.com/user-attachments/assets/379be50f-67b2-4632-ad8b-b979df2381ef" />
 
-<img src="imagini/S9.png" width="500">
+2.Creează fișierul footer.php și mută acolo codul subsolului site-ului (după conținutul principal)
 
-2.În Settings → Permalinks, selectează opțiunea Post name pentru link-uri mai prietenoase.
+<img width="1003" height="210" alt="image" src="https://github.com/user-attachments/assets/cb23884c-0582-4504-9579-5b87f78a275e" />
 
-<img src="imagini/s10.png" width="500">
+3.În index.php, include header.php și footer.php folosind funcțiile get_header() și get_footer()
 
-### Pasul 4. Lucrul cu teme
+4.Pe pagina principală, afișează o listă cu ultimele 5 postări folosind bucla WordPress.
 
-1.Deschide secțiunea Appearance → Themes.
+<img width="1039" height="426" alt="image" src="https://github.com/user-attachments/assets/714daaf8-72a8-4255-b7e5-0e5ab0673c71" />
 
-<img src="imagini/s11.png" width="500">
+### Pasul 4. Fișierul de funcții
 
-2.Instalează o temă nouă din catalogul oficial (de exemplu, „Astra”).
+1.Creează fișierul functions.php în directorul temei.
 
-<img src="imagini/s12.png" width="500">
+2.În functions.php, adaugă o funcție pentru încărcarea stilurilor temei folosind wp_enqueue_style().
 
-3.Activează tema și compară cum s-a schimbat aspectul site-ului.
+<img width="672" height="169" alt="image" src="https://github.com/user-attachments/assets/b4ef120d-df68-42f6-baf1-86f8b19e159d" />
 
-<img src="imagini/s13.png" width="500">
+### Pasul 5. Șabloane suplimentare
 
-<img src="imagini/s14.png" width="500">
+1.Creează fișierul single.php pentru afișarea unei postări individuale.
 
-4.In meniul Appearance → Customize, configurează
+<img width="1194" height="349" alt="image" src="https://github.com/user-attachments/assets/8a7dd7aa-e55b-422e-a4a9-bebadd449211" />
 
-4.1 logoul site-ului
+2.Creează fișierul page.php pentru afișarea paginilor.
 
-<img src="imagini/s15.png" width="500">
+<img width="775" height="223" alt="image" src="https://github.com/user-attachments/assets/5876eff0-073c-4306-ac09-0ea8e73708f4" />
 
-4.2 schema de culori
+3.Creează fișierul sidebar.php pentru bara laterală și include-l în șabloanele relevante cu get_sidebar().
 
-<img src="imagini/s16.png" width="500">
+<img width="523" height="62" alt="image" src="https://github.com/user-attachments/assets/6172095b-daae-43f6-9c61-4f81e3e0ad87" />
 
-4.3 titlul și descrierea(In "Astra" poti doar titlu)
+4.Creează fișierul comments.php pentru afișarea comentariilor și include-l în single.php și page.php.
 
-<img src="imagini/s17.png" width="500">
+<img width="505" height="51" alt="image" src="https://github.com/user-attachments/assets/0db2d643-ea4b-4624-9677-af22b2e781d8" />
 
-### Pasul 5. Lucrul cu plugin-uri
+5.Creează fișierul archive.php pentru afișarea arhivelor postărilor.
 
-1. Accesează secțiunea Plugins → Add New.
+<img width="985" height="910" alt="image" src="https://github.com/user-attachments/assets/c4c59c1c-1bbb-4026-bd83-f5618bd0eed3" />
 
-2. Instalează și activează:
+### Pasul 6. Stilizarea temei
 
-2.1 pluginul Classic Editor (pentru editorul clasic de postări);
+Adaugă stiluri pentru elementele principale ale temei (antet, subsol, conținut, bara laterală).
 
-<img src="imagini/s18.png" width="500">
+<img width="523" height="866" alt="image" src="https://github.com/user-attachments/assets/29f2d003-9d4a-4d07-80ef-b2f75b86227e" />
 
-2.2 pluginul Contact Form 7 (pentru adăugarea unui formular de contact).
+<img width="689" height="897" alt="image" src="https://github.com/user-attachments/assets/61c1dc60-5977-406b-a2f2-f2c2077bc236" />
 
-<img src="imagini/s19.png" width="500">
+<img width="373" height="910" alt="image" src="https://github.com/user-attachments/assets/6b3ed701-9607-4a0e-8ec3-22014cb00958" />
 
-<img src="imagini/s20.png" width="500">
+### Pasul 7. Captura de ecran a temei
 
-3.Verifică noile funcționalități în panoul de administrare (adăugarea unei postări cu Classic Editor și crearea unui formular cu Contact Form 7).
+Adaugă în folderul temei fișierul screenshot.png – o imagine de previzualizare a temei (dimensiune 1200x900px).
 
-<img src="imagini/s21.png" width="500">
+### Pasul 8. Activarea temei
 
-4.În Plugins → Installed Plugins, dezactivează unul dintre plugin-uri și asigură-te că funcționalitatea acestuia a dispărut.
+1.În panoul de administrare WordPress, accesează secțiunea Appearance → Themes.
 
-<img src="imagini/s22.png" width="500">
+2.Găsește tema ta și activeaz-o.
 
-<img src="imagini/s23.png" width="500">
+<img width="386" height="336" alt="image" src="https://github.com/user-attachments/assets/a663c102-a55e-4fd2-965a-ea732dd4b55c" />
 
-Observam ca a disparut Contact(ceea ce demonstreaza ca pluginul Contact form a fost deactivat)
+3.Verifică modul în care site-ul este afișat cu tema ta.
 
-### Pasul 6. Crearea de conținut
-
-1.Creează o pagină simplă „Contacte” și inserează formularul de contact.
-
-Accesam Contact->Contact Form si copiem continutul din Shortcode
-
-<img src="imagini/s25.png" width="500">
-
-Accesam Pages->Add page si inseram codul copiat si publicam pagina
-
-<img src="imagini/s26.png" width="500">
-
-2.Creează câteva postări pe blog cu conținut diferit (text, imagini).
-
-Accesam Pages->Add page si inseram imaginea si textul si publicam pagina
-
-<img src="imagini/s24.png" width="500">
-
-3.Verifică modul în care este afișat conținutul pe site.
-
-Pages->All Pages->view(la pagina care dorim)
-
-Pagina cu imagine si text
-
-<img src="imagini/s27.png" width="500">
-
-Pagina cu formularul
-
-<img src="imagini/s28.png" width="500">
+<img width="1559" height="590" alt="image" src="https://github.com/user-attachments/assets/42e643be-0bf2-4ef0-a7a7-589c9b7c28c7" />
 
 ## Întrebări de control
 
-1.Ce face o temă în WordPress și ce face un plugin?
+1.Care sunt cele două fișiere obligatorii pentru orice temă WordPress?
 
-Tema da culori siteului (ca un fel css) iar pluginul da functionalitati (ca JavaScript) 
+Cele două fișiere obligatorii pentru orice temă sunt style.css, care conține metadatele și designul, și index.php, care servește drept șablon de rezervă pentru afișarea conținutului.
 
-2.De ce nu se pierde conținutul site-ului atunci când se schimbă tema?
+2.Cum se includ părțile comune ale șabloanelor (header, footer, sidebar)?
 
-Deoarece tot continutul se salveaza in baza de date.
+Părțile comune ale șabloanelor se includ folosind funcțiile native get_header(), get_footer() și get_sidebar(), care apelează automat fișierele corespunzătoare din folderul temei.
 
-3.Cum se poate modifica aspectul site-ului fără a edita codul?
+3.Care este diferența dintre index.php, single.php și page.php?
 
-Prin Customize (care il gasesti in acelasi meniu appearance ca si tema)
+Diferența dintre cele trei șabloane principale este destul de clară: index.php este fișierul universal care afișează de obicei lista de postări, single.php 
+
+se ocupă exclusiv de afișarea unui singur articol de blog, iar page.php este dedicat paginilor statice precum pagina de contact sau despre noi.
+
+4.Care este rolul fișierului functions.php într-o temă?
+
+Fișierul functions.php acționează ca un creier al temei, având rolul de a activa funcționalități precum imaginile reprezentative sau meniurile și de a încărca corect 
+
+fișierele CSS și JavaScript prin sistemul de cozi al WordPress-ului.
